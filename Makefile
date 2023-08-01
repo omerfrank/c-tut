@@ -1,4 +1,4 @@
-# simple makefile
+# simple makefile to build htbl
 
 CFLAGS += -Wall -Werror
 
