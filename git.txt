@@ -1,0 +1,27 @@
+
+
+# Show files in workspace
+git status
+
+# Show diff of uncommited changes
+git diff
+
+# Add a file to the repository, and track it
+git add <file> 
+
+# Automatically add all modified files to the chageset and create new commite with the given message
+git commit -am "message"
+
+# Push the commits to the remote (github)
+git push 
+git push github
+
+# Update current branch using the remote (github)
+git pull
+
+# Show log of commits
+git log
+git log -graph
+
+# Rename/move a file tracked by git
+git mv old new
