@@ -1,4 +1,4 @@
-
+# simple makefile
 
 CFLAGS += -Wall -Werror
 
