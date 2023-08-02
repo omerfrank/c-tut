@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-email=${email:-"omerfrank6@gmail.com"}
-gituser=omerfrank
+email=${email:-"someone@gmail.com"}
+gituser=gituser
 dryrun=
 
 function Usage() {
