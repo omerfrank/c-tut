@@ -18,6 +18,8 @@ git push github
 
 # Update current branch using the remote (github)
 git pull
+# pull and rebase
+git pull -r 
 
 # Show log of commits
 git log
