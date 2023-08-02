@@ -21,7 +21,7 @@ git pull
 
 # Show log of commits
 git log
-git log -graph
+git log --graph
 
 # Rename/move a file tracked by git
 git mv old new
