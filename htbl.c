@@ -17,6 +17,19 @@ void HtblInsert(HashTbl* tbl, Node* n)
     tbl->heads[bktid] = n;
 }
 
+unsigned 
+hash(char *str)
+{
+    unsigned hash = 5381;
+    int c;
+
+    while ((c = *str++))
+        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+
+    return hash;
+}
+
+
 int HtblRemove(HashTbl* tbl, Node* n)
 {
     int bktid = n->key % tbl->n_ent;
@@ -49,14 +62,15 @@ int HtblRemove2(HashTbl* op, Node* n)
     return 0;
 }
 
-Node *HtblLookup(HashTbl* op, int key)
+Node *HtblLookup(HashTbl* op, char *name)
 {
-    Node* temp = op->heads[key % op->n_ent];
-    while (temp) {
-        if (temp->key == key) {
-            return temp;
+    unsigned key = hash(name);
+    Node* tmp = op->heads[key % op->n_ent];
+    while (tmp) {
+        if (tmp->key == key && strncmp(name,tmp->name,NAME_SZ ) == 0) {
+            return tmp;
         }
-        temp = temp->next;
+        tmp = tmp->next;
     }
     return NULL;
 }

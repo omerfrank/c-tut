@@ -8,7 +8,7 @@ typedef struct HashTbl HashTbl;
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
 struct Node {
-    int key;            // unique key
+    unsigned key;            // unique key
     char name[NAME_SZ];
     Node* next;
 };
@@ -21,7 +21,7 @@ struct HashTbl {
 void HtblInit(HashTbl* tbl, int keys);
 void HtblInsert(HashTbl* tbl, Node* n);
 int HtblRemove(HashTbl* tbl, Node* n);
-Node *HtblLookup(HashTbl* op, int key);
+Node *HtblLookup(HashTbl* op, char *name);
 void PrintBucket(int bkt, Node* nd);
 
 #endif  // _HTBL_H_

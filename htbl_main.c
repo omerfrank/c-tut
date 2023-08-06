@@ -6,7 +6,7 @@
 
 int main(int argc, char** argv)
 {
-    HashTbl arr = {""};
+    HashTbl arr = {};
     HtblInit(&arr, 3);
 
     int i = 1;
