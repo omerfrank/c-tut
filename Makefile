@@ -6,7 +6,7 @@ LDFLAGS +=
 
 TARGET = htbl		# Name of main binary output
 HDRS = htbl.h		# global headers
-SRCS = htbl.c htbl_main.c			# sources of target
+SRCS = htbl.c text.c			# sources of target
 OBJS = $(patsubst %.c,%.o,$(SRCS))	# build objs list from the src list
 
 # The first target is also the default target, i.e. if the command is just "make".
@@ -30,4 +30,4 @@ clean:
 
 # Additional very common target to issue a "sanity" test
 test: ${TARGET}
-	./${TARGET} 1 2 3 4 5 6
+	./${TARGET} try.txt

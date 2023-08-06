@@ -64,8 +64,10 @@ int HtblRemove2(HashTbl* op, Node* n)
 
 Node *HtblLookup(HashTbl* op, char *name)
 {
+    
     unsigned key = hash(name);
     Node* tmp = op->heads[key % op->n_ent];
+    // printf("node:  \n");
     while (tmp) {
         if (tmp->key == key && strncmp(name,tmp->name,NAME_SZ ) == 0) {
             return tmp;

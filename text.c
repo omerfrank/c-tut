@@ -2,20 +2,10 @@
 #include <string.h>
 #include "htbl.h"
 #include <stdio.h>
+#include <errno.h>
 
 
 
-unsigned
-hash(char *str)
-{
-    unsigned hash = 5381;
-    int c;
-
-    while (c = *str++)
-        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
-
-    return hash;
-}
 
 Node* nodebuilder(char* str ){
     Node *n = malloc(sizeof(Node));
@@ -28,15 +18,22 @@ Node* nodebuilder(char* str ){
 int main(int argc, char **argv)
 {
     char str[256];
-    HashTbl *tbl = {""};
-
+    HashTbl *tbl = calloc(1,sizeof(HashTbl));
+    HtblInit(tbl,5);
     FILE *file = fopen(argv[1], "r");
-    while (!fgets(str, 256, file))
+    if (!file){
+        printf("error opening file '%s': %m\n", argv[1]);
+        exit(1);
+    }
+
+    while (fgets(str, 256, file))
     {
-        if (HtblLookup(tbl , hash(str))){
+        //printf("string: %s \n", str );
+        if (HtblLookup(tbl , str)){
             continue;
         }
+       // printf("lookup suscces \n");
         HtblInsert(tbl,nodebuilder(str));
-        printf(str);
+        puts(str);
     }
 }
