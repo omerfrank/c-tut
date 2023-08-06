@@ -2,9 +2,11 @@
 #include <string.h>
 #include "htbl.h"
 
+
+
 int main(int argc, char** argv)
 {
-    HashTbl arr = {};
+    HashTbl arr = {""};
     HtblInit(&arr, 3);
 
     int i = 1;
