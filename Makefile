@@ -5,8 +5,11 @@ CFLAGS += -Wall -Werror
 LDFLAGS +=
 
 TARGET = htbl		# Name of main binary output
+SERVER = server
 HDRS = htbl.h		# global headers
 SRCS = htbl.c text.c			# sources of target
+SERVER_SRCS = htbl.c server.c
+CLIENT_SRCS = client.c
 OBJS = $(patsubst %.c,%.o,$(SRCS))	# build objs list from the src list
 
 # The first target is also the default target, i.e. if the command is just "make".
